@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web controller</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+
+</head>
+<body>
+    <button id="left">left</button>
+    <button id="right">right</button>
+    <script>
+        const socket = io('http://192.168.1.9:3000');
+        document.getElementById('left').addEventListener('click' , () => {
+            console.log('left')
+            socket.emit('cmd', 'left');
+        })
+        document.getElementById('right').addEventListener('click' , () => {
+            console.log('right')
+            socket.emit('cmd', 'right');
+        })
+    </script>
+</body>
+</html>
